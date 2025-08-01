@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: LeetCode Sync
-        uses: JasinYip/leetcode-sync@v1.2
+        uses: youshandefeiyang/leetcode-sync@v1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
