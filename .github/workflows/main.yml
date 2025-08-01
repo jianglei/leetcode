@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: LeetCode Sync
         uses: joshcai/leetcode-sync@v1.7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           csrf-token: ${{ secrets.CSRF_TOKEN }}
+          destination-folder:leetcode
+          verbose: true
+          commit-header: "[LeetCode Sync]"
           # 以下是可选配置，根据你的需求调整
           # language: 'python,java'  # 指定同步的语言，默认为所有语言
           # format-frontmatter: 'true' # 为 markdown 文件添加 frontmatter，方便在 blog 中使用
