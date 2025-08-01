@@ -1,0 +1,25 @@
+name: LeetCode Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # 每天运行一次，根据需要调整
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: LeetCode Sync
+        uses: JasinYip/leetcode-sync@v1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          csrf-token: ${{ secrets.CSRF_TOKEN }}
+          # 以下是可选配置，根据你的需求调整
+          # language: 'python,java'  # 指定同步的语言，默认为所有语言
+          # format-frontmatter: 'true' # 为 markdown 文件添加 frontmatter，方便在 blog 中使用
+          # custom-filename: 'true' # 使用自定义文件名，例如 "2_add-two-numbers.md"
